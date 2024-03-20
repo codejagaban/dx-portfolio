@@ -139,6 +139,15 @@ import jamin from "../images/jamin.png";
     height: 350px;
     width: 350px;
   }
+
+  @media screen and (max-width: 640px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .content {
+      width: 100%;
+    }
+  }
   h1 {
     font-size: 3rem;
   }
