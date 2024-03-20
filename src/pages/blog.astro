@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/blog.json";
+import Card from "../components/Card.astro";
+console.log(data)
+---
+
+<Layout
+  title="Blogs posts and articles written by Trust Jamin"
+  description="Explore technical articles and blog post crafted by Trust Jamin"
+  keywords="technology insights, programming articles, software development blog,web development, serverless technologies, community management, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  image="/blog.png"
+>
+  <section>
+    <div class="container">
+      <div class="content">
+        <h1>Articles by Jamin</h1>
+      <div class="row">
+        {
+          data.map((post) => (
+            <Card
+              href={post.link}
+              title={post.title}
+              description={`${post.description.slice(0,100)}...`}
+              date={post.date}
+            />
+          ))
+        }
+      </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+</style>
